@@ -5,12 +5,9 @@ import static org.junit.Assert.assertEquals;
 
 public class VideoStoreTest {
 
-    private final String newReleaseTitle = "New Release";
-    private final String childrensTitle = "Childrens";
-    private final String regularTitle = "Regular";
-    private final Movie newReleaseMovie = new Movie(newReleaseTitle, Movie.NEW_RELEASE);
-    private final Movie childrensMovie = new Movie(childrensTitle, Movie.CHILDRENS);
-    private final Movie regularMovie = new Movie(regularTitle, Movie.REGULAR);
+    private final Movie newReleaseMovie = new Movie("New Release", Movie.NEW_RELEASE);
+    private final Movie childrensMovie = new Movie("Childrens", Movie.CHILDRENS);
+    private final Movie regularMovie = new Movie("Regular", Movie.REGULAR);
     private Customer customer;
 
     @Before
@@ -48,5 +45,4 @@ public class VideoStoreTest {
                 ".5\nYou " +
                 "earned 3 frequent renter points\n", customer.statement());
     }
-
 }
