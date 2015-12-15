@@ -8,6 +8,7 @@ public class VideoStoreTest {
     private final String newReleaseTitle = "New Release";
     private final String childrensTitle = "Childrens";
     private final String regularTitle = "Regular";
+    private Customer customer;
 
     @Before
     public void setUp() {
@@ -45,5 +46,4 @@ public class VideoStoreTest {
                 "earned 3 frequent renter points\n", customer.statement());
     }
 
-    private Customer customer;
 }
