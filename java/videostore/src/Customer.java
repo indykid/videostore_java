@@ -24,8 +24,6 @@ public class Customer {
         return formatEntries(statementEntries());
     }
 
-
-
     private String[] statementEntries() {
         return new String[]{header(), rentalsBreakdown(), totalAmount(), totalPoints()};
     }
@@ -56,13 +54,13 @@ public class Customer {
 
     private String lineEntry(Rental rental) {
         return INDENTATION + rental.getTitle() + INDENTATION
-                + rental.calculateLineAmount();
+                + rental.calculateCharge();
     }
 
     private double calculateTotalAmount() {
         double totalAmount = 0;
         for (Rental rental : rentals) {
-            totalAmount += rental.calculateLineAmount();
+            totalAmount += rental.calculateCharge();
         }
         return totalAmount;
     }

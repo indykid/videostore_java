@@ -8,25 +8,8 @@ public class Rental {
         this.daysRented = daysRented;
     }
 
-    public double calculateLineAmount() {
-        double lineAmount = 0;
-
-        switch (movie.getPriceCode()) {
-            case Movie.REGULAR:
-                lineAmount += 2;
-                if (daysRented > 2)
-                    lineAmount += (daysRented - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                lineAmount += daysRented * 3;
-                break;
-            case Movie.CHILDRENS:
-                lineAmount += 1.5;
-                if (daysRented > 3)
-                    lineAmount += (daysRented - 3) * 1.5;
-                break;
-        }
-        return lineAmount;
+    public double calculateCharge() {
+        return movie.calculateCharge(daysRented);
     }
 
     public int calculateFrequentRenterPoints() {
