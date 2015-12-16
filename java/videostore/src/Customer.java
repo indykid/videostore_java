@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Customer {
 
@@ -16,7 +17,8 @@ public class Customer {
     }
 
     public String statement() {
-        return header() + rentalsBreakdown() + footer();
+        String[] entries = new String[]{header(), rentalsBreakdown(), total(), pointsTotal()};
+        return String.join("", Arrays.asList(entries));
     }
 
     public String getName() {
@@ -35,10 +37,6 @@ public class Customer {
                     + rental.calculateLineAmount() + NEW_LINE;
         }
         return result;
-    }
-
-    private String footer() {
-        return total() + pointsTotal();
     }
 
     private String total() {
