@@ -70,7 +70,7 @@ public class Customer {
     private int totalFrequentRenterPoints() {
         int frequentRenterPoints = 0;
         for (Rental rental : rentals) {
-            frequentRenterPoints = rental.calculateFrequentRenterPoints(frequentRenterPoints);
+            frequentRenterPoints += rental.calculateFrequentRenterPoints();
         }
         return frequentRenterPoints;
     }

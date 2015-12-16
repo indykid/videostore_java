@@ -32,7 +32,8 @@ public class Rental {
         return lineAmount;
     }
 
-    int calculateFrequentRenterPoints(int frequentRenterPoints) {
+    int calculateFrequentRenterPoints() {
+        int frequentRenterPoints = 0;
         frequentRenterPoints++;
 
         if (movie.getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1) {
