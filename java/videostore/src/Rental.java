@@ -33,12 +33,20 @@ public class Rental {
     }
 
     int calculateFrequentRenterPoints() {
-        int frequentRenterPoints = 1;
+        int basePoint = 1;
+        return basePoint + bonusPoints();
+    }
 
-        if (movie.getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1) {
-            frequentRenterPoints++;
+    private int bonusPoints() {
+        int points = 0;
+        if (isDueBonusPoints()) {
+            points++;
         }
-        return frequentRenterPoints;
+        return points;
+    }
+
+    private boolean isDueBonusPoints() {
+        return movie.getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1;
     }
 
     String getTitle() {
