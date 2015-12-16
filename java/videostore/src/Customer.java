@@ -4,6 +4,8 @@ public class Customer {
 
     private String name;
     private ArrayList<Rental> rentals = new ArrayList<>();
+    private static final String NEW_LINE = "\n";
+    private static final String INDENTATION = "\t";
 
     public Customer(String name) {
         this.name = name;
@@ -23,14 +25,14 @@ public class Customer {
 
 
     private String header() {
-        return "Rental Record for " + getName() + "\n";
+        return "Rental Record for " + getName() + NEW_LINE;
     }
 
     private String rentalsBreakdown() {
         String result = "";
         for (Rental rental : rentals) {
-            result += "\t" + rental.getTitle() + "\t"
-                    + rental.calculateLineAmount() + "\n";
+            result += INDENTATION + rental.getTitle() + INDENTATION
+                    + rental.calculateLineAmount() + NEW_LINE;
         }
         return result;
     }
@@ -40,11 +42,11 @@ public class Customer {
     }
 
     private String total() {
-        return "You owed " + calculateTotalAmount() + "\n";
+        return "You owed " + calculateTotalAmount() + NEW_LINE;
     }
 
     private String pointsTotal() {
-        return "You earned " + totalFrequentRenterPoints() + " frequent renter points\n";
+        return "You earned " + totalFrequentRenterPoints() + " frequent renter points" + NEW_LINE;
     }
 
     private double calculateTotalAmount() {
