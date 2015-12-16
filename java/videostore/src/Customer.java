@@ -30,7 +30,7 @@ public class Customer {
         String result = "";
         for (Rental rental : rentals) {
             result += "\t" + rental.getTitle() + "\t"
-                    + String.valueOf(rental.calculateLineAmount()) + "\n";
+                    + rental.calculateLineAmount() + "\n";
         }
         return result;
     }
@@ -40,11 +40,11 @@ public class Customer {
     }
 
     private String total() {
-        return "You owed " + String.valueOf(calculateTotalAmount()) + "\n";
+        return "You owed " + calculateTotalAmount() + "\n";
     }
 
     private String pointsTotal() {
-        return "You earned " + String.valueOf(totalFrequentRenterPoints()) + " frequent renter points\n";
+        return "You earned " + totalFrequentRenterPoints() + " frequent renter points\n";
     }
 
     private double calculateTotalAmount() {
