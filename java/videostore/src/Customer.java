@@ -31,11 +31,11 @@ public class Customer {
     }
 
     private String rentalsBreakdown() {
-        String result = "";
+        ArrayList<String> lineEntries = new ArrayList<>();
         for (Rental rental : rentals) {
-            result += lineEntry(rental);
+            lineEntries.add(lineEntry(rental));
         }
-        return result;
+        return String.join("", lineEntries);
     }
 
     private String lineEntry(Rental rental) {
