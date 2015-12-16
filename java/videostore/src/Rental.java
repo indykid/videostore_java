@@ -11,14 +11,10 @@ public class Rental {
         return daysRented;
     }
 
-    public Movie getMovie() {
-        return movie;
-    }
-
     double calculateLineAmount() {
         double lineAmount = 0;
 
-        switch (getMovie().getPriceCode()) {
+        switch (movie.getPriceCode()) {
             case Movie.REGULAR:
                 lineAmount += 2;
                 if (getDaysRented() > 2)
@@ -39,13 +35,13 @@ public class Rental {
     int calculateFrequentRenterPoints(int frequentRenterPoints) {
         frequentRenterPoints++;
 
-        if (getMovie().getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1) {
+        if (movie.getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1) {
             frequentRenterPoints++;
         }
         return frequentRenterPoints;
     }
 
     String getTitle() {
-        return getMovie().getTitle();
+        return movie.getTitle();
     }
 }
