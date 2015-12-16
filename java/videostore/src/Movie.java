@@ -23,4 +23,7 @@ public class Movie {
         return title;
     }
 
+    public boolean qualifiesForBonusPoints() {
+        return getPriceCode() == NEW_RELEASE;
+    }
 }
