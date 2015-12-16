@@ -1,6 +1,7 @@
 public class Rental {
     private Movie movie;
     private int daysRented;
+    private static final int BASE_FREQUENTER_POINT = 1;
 
     public Rental(Movie movie, int daysRented) {
         this.movie = movie;
@@ -11,7 +12,7 @@ public class Rental {
         return daysRented;
     }
 
-    double calculateLineAmount() {
+    public double calculateLineAmount() {
         double lineAmount = 0;
 
         switch (movie.getPriceCode()) {
@@ -32,9 +33,8 @@ public class Rental {
         return lineAmount;
     }
 
-    int calculateFrequentRenterPoints() {
-        int basePoint = 1;
-        return basePoint + bonusPoints();
+    public int calculateFrequentRenterPoints() {
+        return BASE_FREQUENTER_POINT + bonusPoints();
     }
 
     private int bonusPoints() {
