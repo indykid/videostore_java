@@ -53,7 +53,7 @@ public class Rental {
         return getDaysRented() > 1;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return movie.getTitle();
     }
 }
