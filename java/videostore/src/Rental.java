@@ -46,7 +46,11 @@ public class Rental {
     }
 
     private boolean isDueBonusPoints() {
-        return movie.qualifiesForBonusPoints() && getDaysRented() > 1;
+        return movie.qualifiesForBonusPoints() && meetsMinRentalDuration();
+    }
+
+    private boolean meetsMinRentalDuration() {
+        return getDaysRented() > 1;
     }
 
     String getTitle() {
