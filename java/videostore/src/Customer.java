@@ -23,7 +23,7 @@ public class Customer {
         String result = "Rental Record for " + getName() + "\n";
 
         for (Rental rental : rentals) {
-            double thisAmount = calculateLineAmount(rental);
+            double lineAmount = rental.calculateLineAmount();
 
             frequentRenterPoints++;
 
@@ -32,8 +32,8 @@ public class Customer {
                 frequentRenterPoints++;
 
             result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(thisAmount) + "\n";
-            totalAmount += thisAmount;
+                    + String.valueOf(lineAmount) + "\n";
+            totalAmount += lineAmount;
 
         }
 
@@ -43,25 +43,4 @@ public class Customer {
         return result;
     }
 
-    private double calculateLineAmount(Rental rental) {
-        double lineAmount = 0;
-
-        // determines the amount for each line
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                lineAmount += 2;
-                if (rental.getDaysRented() > 2)
-                    lineAmount += (rental.getDaysRented() - 2) * 1.5;
-                break;
-            case Movie.NEW_RELEASE:
-                lineAmount += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRENS:
-                lineAmount += 1.5;
-                if (rental.getDaysRented() > 3)
-                    lineAmount += (rental.getDaysRented() - 3) * 1.5;
-                break;
-        }
-        return lineAmount;
-    }
 }
