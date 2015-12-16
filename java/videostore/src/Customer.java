@@ -12,19 +12,27 @@ public class Customer {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addRental(Rental rental) {
         rentals.add(rental);
     }
 
     public String statement() {
-        String[] entries = new String[]{header(), rentalsBreakdown(), total(), pointsTotal()};
+        return formatEntries(statementEntries());
+    }
+
+
+
+    private String[] statementEntries() {
+        return new String[]{header(), rentalsBreakdown(), totalAmount(), totalPoints()};
+    }
+
+    private String formatEntries(String[] entries) {
         return String.join(NEW_LINE, Arrays.asList(entries)) + NEW_LINE;
     }
-
-    public String getName() {
-        return name;
-    }
-
 
     private String header() {
         return "Rental Record for " + getName();
@@ -38,17 +46,17 @@ public class Customer {
         return String.join(NEW_LINE, lineEntries);
     }
 
-    private String lineEntry(Rental rental) {
-        return INDENTATION + rental.getTitle() + INDENTATION
-                + rental.calculateLineAmount();
-    }
-
-    private String total() {
+    private String totalAmount() {
         return "You owed " + calculateTotalAmount();
     }
 
-    private String pointsTotal() {
+    private String totalPoints() {
         return "You earned " + totalFrequentRenterPoints() + " frequent renter points";
+    }
+
+    private String lineEntry(Rental rental) {
+        return INDENTATION + rental.getTitle() + INDENTATION
+                + rental.calculateLineAmount();
     }
 
     private double calculateTotalAmount() {
