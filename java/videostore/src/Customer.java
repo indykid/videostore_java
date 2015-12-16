@@ -22,19 +22,14 @@ public class Customer {
         String result = "Rental Record for " + getName() + "\n";
 
         for (Rental rental : rentals) {
-            double lineAmount = rental.calculateLineAmount();
-
-
             result += "\t" + rental.getMovie().getTitle() + "\t"
-                    + String.valueOf(lineAmount) + "\n";
-            totalAmount += lineAmount;
+                    + String.valueOf(rental.calculateLineAmount()) + "\n";
 
+            totalAmount += rental.calculateLineAmount();
         }
 
-        int frequentRenterPoints = totalFrequentRenterPoints();
-
         result += "You owed " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points\n";
+        result += "You earned " + String.valueOf(totalFrequentRenterPoints()) + " frequent renter points\n";
 
         return result;
     }
