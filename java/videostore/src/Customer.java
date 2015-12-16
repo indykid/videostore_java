@@ -14,7 +14,7 @@ public class Customer {
     }
 
     public String statement() {
-        return header() + rentalBreakdown() + footer();
+        return header() + rentalsBreakdown() + footer();
     }
 
     public String getName() {
@@ -26,10 +26,10 @@ public class Customer {
         return "Rental Record for " + getName() + "\n";
     }
 
-    private String rentalBreakdown() {
+    private String rentalsBreakdown() {
         String result = "";
         for (Rental rental : rentals) {
-            result += "\t" + rental.getMovie().getTitle() + "\t"
+            result += "\t" + rental.getTitle() + "\t"
                     + String.valueOf(rental.calculateLineAmount()) + "\n";
         }
         return result;

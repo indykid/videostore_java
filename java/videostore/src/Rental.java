@@ -44,4 +44,8 @@ public class Rental {
         }
         return frequentRenterPoints;
     }
+
+    String getTitle() {
+        return getMovie().getTitle();
+    }
 }
