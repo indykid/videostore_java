@@ -42,14 +42,8 @@ public class Customer {
     private int totalFrequentRenterPoints() {
         int frequentRenterPoints = 0;
         for (Rental rental : rentals) {
-            frequentRenterPoints++;
-
-            if (rental.getMovie().getPriceCode() == Movie.NEW_RELEASE
-                    && rental.getDaysRented() > 1)
-                frequentRenterPoints++;
-
+            frequentRenterPoints = rental.calculateFrequentRenterPoints(frequentRenterPoints);
         }
         return frequentRenterPoints;
     }
-
 }
