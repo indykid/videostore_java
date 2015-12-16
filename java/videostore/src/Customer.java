@@ -13,28 +13,14 @@ public class Customer {
         rentals.add(rental);
     }
 
+    public String statement() {
+        return header() + rentalBreakdown() + footer();
+    }
+
     public String getName() {
         return name;
     }
 
-    public String statement() {
-
-        String result = "";
-        result += header();
-        result += rentalBreakdown();
-        result += total();
-        result += pointsTotal();
-
-        return result;
-    }
-
-    private String pointsTotal() {
-        return "You earned " + String.valueOf(totalFrequentRenterPoints()) + " frequent renter points\n";
-    }
-
-    private String total() {
-        return "You owed " + String.valueOf(calculateTotalAmount()) + "\n";
-    }
 
     private String header() {
         return "Rental Record for " + getName() + "\n";
@@ -47,6 +33,18 @@ public class Customer {
                     + String.valueOf(rental.calculateLineAmount()) + "\n";
         }
         return result;
+    }
+
+    private String footer() {
+        return total() + pointsTotal();
+    }
+
+    private String total() {
+        return "You owed " + String.valueOf(calculateTotalAmount()) + "\n";
+    }
+
+    private String pointsTotal() {
+        return "You earned " + String.valueOf(totalFrequentRenterPoints()) + " frequent renter points\n";
     }
 
     private double calculateTotalAmount() {
