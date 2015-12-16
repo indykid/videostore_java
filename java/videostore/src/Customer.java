@@ -33,10 +33,14 @@ public class Customer {
     private String rentalsBreakdown() {
         String result = "";
         for (Rental rental : rentals) {
-            result += INDENTATION + rental.getTitle() + INDENTATION
-                    + rental.calculateLineAmount() + NEW_LINE;
+            result += lineEntry(rental);
         }
         return result;
+    }
+
+    private String lineEntry(Rental rental) {
+        return INDENTATION + rental.getTitle() + INDENTATION
+                + rental.calculateLineAmount() + NEW_LINE;
     }
 
     private String total() {
