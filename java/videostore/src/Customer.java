@@ -18,7 +18,7 @@ public class Customer {
 
     public String statement() {
         String[] entries = new String[]{header(), rentalsBreakdown(), total(), pointsTotal()};
-        return String.join("", Arrays.asList(entries));
+        return String.join(NEW_LINE, Arrays.asList(entries)) + NEW_LINE;
     }
 
     public String getName() {
@@ -27,7 +27,7 @@ public class Customer {
 
 
     private String header() {
-        return "Rental Record for " + getName() + NEW_LINE;
+        return "Rental Record for " + getName();
     }
 
     private String rentalsBreakdown() {
@@ -35,20 +35,20 @@ public class Customer {
         for (Rental rental : rentals) {
             lineEntries.add(lineEntry(rental));
         }
-        return String.join("", lineEntries);
+        return String.join(NEW_LINE, lineEntries);
     }
 
     private String lineEntry(Rental rental) {
         return INDENTATION + rental.getTitle() + INDENTATION
-                + rental.calculateLineAmount() + NEW_LINE;
+                + rental.calculateLineAmount();
     }
 
     private String total() {
-        return "You owed " + calculateTotalAmount() + NEW_LINE;
+        return "You owed " + calculateTotalAmount();
     }
 
     private String pointsTotal() {
-        return "You earned " + totalFrequentRenterPoints() + " frequent renter points" + NEW_LINE;
+        return "You earned " + totalFrequentRenterPoints() + " frequent renter points";
     }
 
     private double calculateTotalAmount() {
