@@ -63,7 +63,7 @@ public class Statement {
     private int totalFrequentRenterPoints() {
         int frequentRenterPoints = 0;
         for (Rental rental : rentals) {
-            frequentRenterPoints += rental.countFrequentRenterPoints();
+            frequentRenterPoints += rental.calculateFrequentRenterPoints();
         }
         return frequentRenterPoints;
     }

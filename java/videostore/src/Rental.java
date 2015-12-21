@@ -1,4 +1,5 @@
 public class Rental {
+
     private Movie movie;
     private int daysRented;
 
@@ -11,16 +12,11 @@ public class Rental {
         return movie.calculateCharge(daysRented);
     }
 
-    public int countFrequentRenterPoints() {
-        if (qualifiesForBonusPoints()) return 2;
-        return 1;
+    public int calculateFrequentRenterPoints() {
+        return movie.calculateFrequentRenterPoints(daysRented);
     }
 
     public String getTitle() {
         return movie.getTitle();
-    }
-
-    private boolean qualifiesForBonusPoints() {
-        return movie.isBonusTitle() && daysRented > 1;
     }
 }

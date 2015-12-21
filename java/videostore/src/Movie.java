@@ -12,11 +12,11 @@ public class Movie {
         return title;
     }
 
-    public boolean isBonusTitle() {
-        return priceCode.isBonus();
-    }
-
     public double calculateCharge(int daysRented) {
         return priceCode.calculateCharge(daysRented);
+    }
+
+    public int calculateFrequentRenterPoints(int daysRented) {
+        return priceCode.calculateFrequentRenterPoints(daysRented);
     }
 }
