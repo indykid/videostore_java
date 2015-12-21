@@ -1,4 +1,5 @@
-public class Movie {
+public abstract class Movie {
+
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
@@ -11,16 +12,13 @@ public class Movie {
         this.priceCode = priceCode;
     }
 
-    public int getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(int code) {
-        priceCode = code;
-    }
-
     public String getTitle() {
         return title;
     }
 
+    public boolean isBonusTitle() {
+        return priceCode == NEW_RELEASE;
+    }
+
+    public abstract double calculateCharge(int daysRented);
 }
