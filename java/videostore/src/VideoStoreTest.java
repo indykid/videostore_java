@@ -6,9 +6,10 @@ import static org.junit.Assert.assertEquals;
 public class VideoStoreTest {
 
     private Statement statement;
-    private final Movie newReleaseMovie = new NewReleaseMovie("New Release");
-    private final Movie childrensMovie = new ChildrensMovie("Childrens");
-    private final Movie regularMovie = new RegularMovie("Regular");
+
+    private final Movie newReleaseMovie = new Movie("New Release", new NewReleasePriceCode());
+    private final Movie childrensMovie = new Movie("Childrens", new ChildrensPriceCode());
+    private final Movie regularMovie = new Movie("Regular", new RegularPriceCode());
 
     @Before
     public void setUp() {

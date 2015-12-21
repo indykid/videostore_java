@@ -1,7 +1,7 @@
-public class RegularMovie extends Movie {
+public class RegularPriceCode extends PriceCode {
 
-    public RegularMovie(String title) {
-        super(title, REGULAR);
+    public RegularPriceCode() {
+        this.code = 0;
     }
 
     @Override

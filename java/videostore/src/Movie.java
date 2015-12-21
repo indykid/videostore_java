@@ -1,13 +1,9 @@
-public abstract class Movie {
-
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
+public class Movie {
 
     private String title;
-    private int priceCode;
+    private PriceCode priceCode;
 
-    public Movie(String title, int priceCode) {
+    public Movie(String title, PriceCode priceCode) {
         this.title = title;
         this.priceCode = priceCode;
     }
@@ -17,8 +13,10 @@ public abstract class Movie {
     }
 
     public boolean isBonusTitle() {
-        return priceCode == NEW_RELEASE;
+        return priceCode.isBonus();
     }
 
-    public abstract double calculateCharge(int daysRented);
+    public double calculateCharge(int daysRented) {
+        return priceCode.calculateCharge(daysRented);
+    }
 }

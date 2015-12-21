@@ -1,7 +1,7 @@
-public class ChildrensMovie extends Movie {
+public class ChildrensPriceCode extends PriceCode {
 
-    public ChildrensMovie(String title) {
-        super(title, CHILDRENS);
+    public ChildrensPriceCode() {
+        this.code = 2;
     }
 
     @Override
