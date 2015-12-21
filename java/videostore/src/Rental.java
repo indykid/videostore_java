@@ -15,7 +15,7 @@ public class Rental {
     private Movie movie;
     private int daysRented;
 
-    int calculateFrequentRenterPoints() {
+    int countFrequentRenterPoints() {
         int frequentRenterPoints = 1;
 
         if (getMovie().getPriceCode() == Movie.NEW_RELEASE
@@ -24,7 +24,7 @@ public class Rental {
         return frequentRenterPoints;
     }
 
-    double rentalAmount() {
+    double rentalCharge() {
         double rentalAmount = 0;
         switch (getMovie().getPriceCode()) {
             case Movie.REGULAR:
@@ -42,5 +42,9 @@ public class Rental {
                 break;
         }
         return rentalAmount;
+    }
+
+    public String getTitle() {
+        return movie.getTitle();
     }
 }
