@@ -1,9 +1,5 @@
 public class ChildrensPriceCode extends PriceCode {
 
-    public ChildrensPriceCode() {
-        this.code = 2;
-    }
-
     @Override
     public double calculateCharge(int daysRented) {
         double rentalAmount = 1.5;

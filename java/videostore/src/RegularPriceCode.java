@@ -1,9 +1,5 @@
 public class RegularPriceCode extends PriceCode {
 
-    public RegularPriceCode() {
-        this.code = 0;
-    }
-
     @Override
     public double calculateCharge(int daysRented) {
         double rentalCharge = 2;

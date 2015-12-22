@@ -1,7 +1,5 @@
 public abstract class PriceCode {
 
-    protected int code;
-
     public int calculateFrequentRenterPoints(int daysRented) {
         return 1;
     }
