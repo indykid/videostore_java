@@ -9,10 +9,10 @@ public class ChildrensPriceCode extends PriceCode {
     }
 
     private double chargeFor(int daysRented) {
-        return BASE_RATE + excessFor(daysRented);
+        return BASE_RATE + excessFor(daysRented - INCLUSIVE_DAYS);
     }
 
-    private double excessFor(int daysRented) {
-        return (daysRented - INCLUSIVE_DAYS) * BASE_RATE;
+    private double excessFor(int days) {
+        return days * BASE_RATE;
     }
 }
